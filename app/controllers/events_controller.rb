@@ -17,6 +17,16 @@ class EventsController < ApplicationController
     redirect_to @event
   end
 
+  def new
+    @event = Event.new
+  end
+
+  def create
+    @event = Event.new(event_params)
+    @event.save
+    redirect_to @event
+  end
+
   private
 
     def event_params
