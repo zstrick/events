@@ -114,3 +114,10 @@ Event.create!([
     capacity: 30
   }
 ])
+
+event1 = Event.find(1)
+event2 = Event.find(2)
+registration1 = event1.registrations.create!(name: "Zack", email: "zack@example.com", how_heard: "Newsletter")
+registration2 = event1.registrations.create!(name: "Moe", email: "moe@example.com", how_heard: "Newsletter")
+registration3 = event1.registrations.create!(name: "Jim", email: "jim@example.com", how_heard: "Newsletter")
+registration4 = event2.registrations.create!(name: "Sally", email: "sally@example.com", how_heard: "Newsletter")
