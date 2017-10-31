@@ -5,6 +5,7 @@
       <p>
         <% if currrent_user %>
           <%= link_to currrent_user.name, currrent_user %>
+          <%= link_to "Sign Out", session_path, method: :delete, class: "button" %>
         <% else %>
           <%= link_to "Sign Up", signup_path, class: "button" %>
           <%= link_to "Sign In", new_session_path, class: "button" %>
