@@ -3,7 +3,12 @@
     <h1><%= link_to 'Events', root_path %></h1>
     <nav>
       <p>
-        <%= link_to "Sign Up", signup_path, class: "button" %>
+        <% if currrent_user %>
+          <%= link_to currrent_user.name, currrent_user %>
+        <% else %>
+          <%= link_to "Sign Up", signup_path, class: "button" %>
+          <%= link_to "Sign In", new_session_path, class: "button" %>
+        <% end %>
       </p>
     </nav>
   </div>
