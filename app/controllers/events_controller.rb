@@ -4,7 +4,16 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.upcoming
+    case params[:scope]
+    when "past"
+      @events = Event.past
+    when "free"
+      @events = Event.free
+    when "recent"
+      @events = Event.recent
+    else
+      @events = Event.upcoming
+    end
   end
 
   def show
