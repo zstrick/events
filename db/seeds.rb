@@ -115,6 +115,9 @@ Event.create!([
   }
 ])
 
+category_names = ["Class", "User Group", "Social", "Free", "Paid", "Ruby", "Rails"]
+category_names.each do { |name| Category.create!(name: name) }
+
 event1 = Event.find(1)
 event2 = Event.find(2)
 user1 = User.create!(name: "Zack", email: "zack@example.com", password: "password", password_confirmation: "password")
