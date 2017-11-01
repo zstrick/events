@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  has_many :registrations, dependent: :destroy
 
   validates :name, :location, presence: true
   validates :description, length: { minimum: 25 }
@@ -8,9 +9,6 @@ class Event < ApplicationRecord
     with: /\w+\.(gif|jpg|png)\z/i,
     message: "must reference a GIF, JPG, or PNG image"
   }
-
-  has_many :registrations, dependent: :destroy
-
 
   def free?
     price.blank? || price.zero?
